@@ -11,7 +11,6 @@ def get_amount() -> float:
         except ValueError:
             print("Introduce un número válido.")
 
-
 def get_category() -> str:
     category = input("Introduce la categoría del gasto: ").strip()
 
@@ -33,7 +32,6 @@ def main() -> None:
             "category": category,
         }
 
-
         if category not in expenses:
             expenses[category] = []
         expenses[category].append(amount)
@@ -44,8 +42,6 @@ def main() -> None:
         choice = input("¿Quieres añadir otro gasto? (y/n): ").lower().strip()
         if choice != "y":
             break
-
-
 
     print("\nResumen final:")
     total = 0.0
