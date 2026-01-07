@@ -20,26 +20,38 @@ def get_category() -> str:
     return category
 
 def main() -> None:
-    print("=== Expense Tracker v0.2 ===")
+    print("=== Expense Tracker v0.3 ===")
 
     expenses = []
 
-    amount = get_amount()
-    category = get_category()
+    while True:
+        amount = get_amount()
+        category = get_category()
 
-    expense = {
-        "amount": amount,
-        "category": category,
-    }
+        expense = {
+            "amount": amount,
+            "category": category,
+        }
 
-    expenses.append(expense)
+        expenses.append(expense)
 
-    print("\nGasto añadido correctamente")
-    print(expense)
+        print("\nGasto añadido correctamente")
+        print(expense)
+    
+        choice = input("¿Quieres añadir otro gasto? (y/n): ").lower().strip()
+        if choice != "y":
+            break
 
-    print("\nResumen actual:")
+
+
+    print("\nResumen final:")
+    total = 0.0
+
     for e in expenses:
         print(f"- {e['category']}: {e['amount']} €")
+        total += e["amount"]
+        
+    print(f"\nTotal gastado: {total} €")
 
 if __name__ == "__main__":
     main()
